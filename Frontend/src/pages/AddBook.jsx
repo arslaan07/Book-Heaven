@@ -33,7 +33,7 @@ const AddBook = () => {
                 alert('All fields are required')
                 return
             }
-            const response = await api.post(`/add-book`, Data, { headers })
+            const response = await api.post(`api/v1/add-book`, Data, { headers })
             setData({
                 url: '',
                 title: '',

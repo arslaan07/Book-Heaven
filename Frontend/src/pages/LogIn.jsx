@@ -24,7 +24,7 @@ const LogIn = () => {
             alert('All fields are required')
             return
         }
-        const response = await api.post(`/sign-in`, Values)
+        const response = await api.post(`api/v1/sign-in`, Values)
         
         dispatch(authActions.login())
         dispatch(authActions.changeRole(response.data.role))

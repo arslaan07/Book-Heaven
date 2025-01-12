@@ -9,7 +9,7 @@ const AllBooks = () => {
     const [Data, setData] =  useState()
     useEffect(() => {
         const fetch = async () => {
-           const response = await api.get(`/get-all-books`)
+           const response = await api.get(`api/v1/get-all-books`)
            setData(response.data.data)
         }
         fetch()

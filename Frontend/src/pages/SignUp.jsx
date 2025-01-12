@@ -22,7 +22,7 @@ const SignUp = () => {
             alert('All fields are required')
             return
         }
-        const response = await api.post(`/sign-up`, Values)
+        const response = await api.post(`api/v1/sign-up`, Values)
         alert(response.data.message)
         navigate('/login')
     } catch (error) {

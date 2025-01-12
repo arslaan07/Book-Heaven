@@ -13,7 +13,7 @@ const UserOrderHistory = () => {
       useEffect(() => {
         try {
             const fetch = async () => {
-                const response = await api.get(`/get-order-history`, { headers })
+                const response = await api.get(`api/v1/get-order-history`, { headers })
                 setOrderHistory(response.data.data)
                 console.log(response.data.data)
             }

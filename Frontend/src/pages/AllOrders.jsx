@@ -26,7 +26,7 @@ const AllOrders = () => {
     const fetchOrders = async () => {
       try {
         const response = await api.get(
-          `/get-all-orders`,
+          `api/v1/get-all-orders`,
           { headers }
         );
         setAllOrders(response.data.data);
@@ -53,7 +53,7 @@ const AllOrders = () => {
     try {
       const id = AllOrders[i]._id;
       const response = await api.put(
-        `/update-status/${id}`,
+        `api/v1/update-status/${id}`,
         Values,
         { headers }
       );

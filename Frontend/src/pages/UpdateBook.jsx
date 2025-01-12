@@ -35,7 +35,7 @@ const UpdateBook = () => {
                 alert('All fields are required')
                 return
             }
-            const response = await api.put(`/update-book`, Data, { headers })
+            const response = await api.put(`api/v1/update-book`, Data, { headers })
             setData({
                 url: '',
                 title: '',
@@ -53,7 +53,7 @@ const UpdateBook = () => {
       useEffect(() => {
         const fetch = async () => {
           const response = await api.get(
-            `/get-book-by-id/${id}`
+            `api/v1/get-book-by-id/${id}`
           );
           setData(response.data.data);
         };

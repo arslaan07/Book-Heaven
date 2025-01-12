@@ -18,7 +18,7 @@ const Profile = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await api.get(
-        `/get-user-info`,
+        `api/v1/get-user-info`,
         { headers },
       );
       console.log(response.data.data)
