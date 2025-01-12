@@ -11,7 +11,7 @@ const RecentlyAdded = () => {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await api.get(`/get-recent-books`);
+                const response = await api.get(`api/v1/get-recent-books`);
                 setData(response.data.data);
             } catch (err) {
                 setError(err.message || 'Failed to fetch books');
