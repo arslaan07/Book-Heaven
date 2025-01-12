@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import api from '../api';
 
 const AddBook = () => {
     const navigate = useNavigate()
@@ -32,7 +33,7 @@ const AddBook = () => {
                 alert('All fields are required')
                 return
             }
-            const response = await axios.post('http://localhost:3000/api/v1/add-book', Data, { headers })
+            const response = await axios.post(`${api}/add-book`, Data, { headers })
             setData({
                 url: '',
                 title: '',

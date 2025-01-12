@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import api from '../../api';
 
 const BookCard = ({ data, favorite, onRemove }) => {
     console.log(data)
@@ -11,7 +12,7 @@ const BookCard = ({ data, favorite, onRemove }) => {
       };
     const handleRemoveBook = async () => {
         try {
-            const response = await axios.delete('http://localhost:3000/api/v1/remove-book-from-favorite', { headers })
+            const response = await axios.delete(`${api}/remove-book-from-favorite`, { headers })
             onRemove(data._id)
             alert(response.data.message)
         } catch (error) {

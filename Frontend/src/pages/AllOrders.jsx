@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
 import { IoOpenOutline } from "react-icons/io5";
 import SeeUserData from "./SeeUserData";
+import api from '../api';
 
 const AllOrders = () => {
   const [AllOrders, setAllOrders] = useState([]);
@@ -14,6 +15,7 @@ const AllOrders = () => {
   const [loading, setLoading] = useState(true);
   const [userDiv, setuserDiv] = useState('hidden')
   const [userDivData, setuserDivData] = useState()
+  
   
   const headers = {
     id: localStorage.getItem("id"),
@@ -24,7 +26,7 @@ const AllOrders = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/get-all-orders",
+          `${api}/get-all-orders`,
           { headers }
         );
         setAllOrders(response.data.data);
@@ -51,7 +53,7 @@ const AllOrders = () => {
     try {
       const id = AllOrders[i]._id;
       const response = await axios.put(
-        `http://localhost:3000/api/v1/update-status/${id}`,
+        `${api}/update-status/${id}`,
         Values,
         { headers }
       );

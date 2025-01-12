@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import api from '../api';
 
 const SignUp = () => {
   const navigate = useNavigate()
@@ -21,7 +22,7 @@ const SignUp = () => {
             alert('All fields are required')
             return
         }
-        const response = await axios.post('http://localhost:3000/api/v1/sign-up', Values)
+        const response = await api.post(`/sign-up`, Values)
         alert(response.data.message)
         navigate('/login')
     } catch (error) {

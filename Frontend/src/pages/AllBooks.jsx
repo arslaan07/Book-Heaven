@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import Loader from '../components/Home/Loader/Loader'
 import BookCard from '../components/BookCard/BookCard'
 import axios from 'axios'
+import api from '../api';
+
 
 const AllBooks = () => {
     const [Data, setData] =  useState()
     useEffect(() => {
         const fetch = async () => {
-           const response = await axios.get('http://localhost:3000/api/v1/get-all-books')
+           const response = await axios.get(`${api}/get-all-books`)
            setData(response.data.data)
         }
         fetch()

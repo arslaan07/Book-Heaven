@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import Loader from "../components/Home/Loader/Loader";
 import MobileNav from "../components/Profile/MobileNav";
+import api from '../api';
 
 const Profile = () => {
   //   const isLoggedIn = useSelector();
@@ -13,10 +14,11 @@ const Profile = () => {
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,
   };
+  console.log(api)
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(
-        "http://localhost:3000/api/v1/get-user-info",
+      const response = await api.get(
+        `/get-user-info`,
         { headers }
       );
       console.log(response.data.data)

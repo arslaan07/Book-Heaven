@@ -3,6 +3,7 @@ import Loader from '../components/Home/Loader/Loader'
 import { AiFillDelete } from "react-icons/ai";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import api from '../api';
 
 const Cart = () => {
     const navigate = useNavigate()
@@ -15,7 +16,7 @@ const Cart = () => {
       useEffect(() => {
         const fetch = async () => {
           const response = await axios.get(
-            "http://localhost:3000/api/v1/get-user-cart",
+            `${api}/get-user-cart`,
             { headers }
           );
           console.log(response.data.data)
@@ -25,7 +26,7 @@ const Cart = () => {
       }, []);
       const deleteItem = async (bookid) => {
         try {
-            const response = await axios.put(`http://localhost:3000/api/v1/remove-from-cart/${bookid}`, {}, {headers})
+            const response = await axios.put(`${api}/remove-from-cart/${bookid}`, {}, {headers})
             setCart(Cart.filter(book => book._id !== bookid))
             alert(response.data.message)
         } catch (error) {
@@ -43,7 +44,7 @@ const Cart = () => {
       }, [Cart])
       const placeOrder = async () => {
         try {
-            const response = await axios.post(`http://localhost:3000/api/v1/place-order`, {order: Cart}, {headers})
+            const response = await axios.post(`${api}/place-order`, {order: Cart}, {headers})
             console.log(response)
             alert(response.data.message)
             navigate('/profile/orderHistory')

@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
+import api from '../../../api';
+
 
 const ViewBookDetails = () => {
   const { id } = useParams();
@@ -18,7 +20,7 @@ const ViewBookDetails = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/get-book-by-id/${id}`
+        `${api}/get-book-by-id/${id}`
       );
       setData(response.data.data);
     };
