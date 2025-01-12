@@ -19,7 +19,7 @@ const Profile = () => {
     const fetch = async () => {
       const response = await api.get(
         `/get-user-info`,
-        { headers }
+        { headers },
       );
       console.log(response.data.data)
       setProfile(response.data.data);
