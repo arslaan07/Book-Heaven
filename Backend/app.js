@@ -9,7 +9,7 @@ const favorite = require('./routes/favorite')
 const cart = require('./routes/cart')
 const order = require('./routes/order')
 
-app.use(cors())
+app.use(cors({ origin: 'https://zingy-cupcake-8a672f.netlify.app/' }));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 

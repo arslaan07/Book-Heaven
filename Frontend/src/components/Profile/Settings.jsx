@@ -13,7 +13,7 @@ const Settings = () => {
       };
       useEffect(() => {
         const fetch = async () => {
-            const response = await axios.get(`${api}/get-user-info`, { headers })
+            const response = await api.get(`/get-user-info`, { headers })
             console.log(response)
             setProfileData(response.data.data)
             setValue({ address: response.data.data.address })
@@ -25,7 +25,7 @@ const Settings = () => {
       }
       const updateAddress = async () => {
         try {
-            const response = await  axios.put(`${api}/update-address`, Value, { headers })
+            const response = await  api.put(`/update-address`, Value, { headers })
             alert('Adress updated successfully')
         } catch (error) {
             console.error(error)

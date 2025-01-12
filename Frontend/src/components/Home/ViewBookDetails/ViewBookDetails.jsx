@@ -19,8 +19,8 @@ const ViewBookDetails = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(
-        `${api}/get-book-by-id/${id}`
+      const response = await api.get(
+        `/get-book-by-id/${id}`
       );
       setData(response.data.data);
     };
@@ -35,7 +35,7 @@ const ViewBookDetails = () => {
 
   const handleFavourite = async () => {
     try {
-        const response = await axios.put('http://localhost:3000/api/v1/add-book-to-favorite', {}, { headers })
+        const response = await api.put('/add-book-to-favorite', {}, { headers })
         alert(response.data.message)
     } catch (error) {
         console.log(error.message)
@@ -44,7 +44,7 @@ const ViewBookDetails = () => {
   }
   const handleCart = async () => {
     try {
-        const response = await axios.put('http://localhost:3000/api/v1/add-to-cart', {}, { headers })
+        const response = await api.put('/add-to-cart', {}, { headers })
         alert(response.data.message)
     } catch (error) {
         console.log(error.message)
@@ -53,7 +53,7 @@ const ViewBookDetails = () => {
   }
   const deleteBook = async () => {
     try {
-        const response = await axios.delete('http://localhost:3000/api/v1/delete-book', {headers})
+        const response = await api.delete('/delete-book', {headers})
         alert(response.data.message)
         navigate('/all-books')
     } catch (error) {

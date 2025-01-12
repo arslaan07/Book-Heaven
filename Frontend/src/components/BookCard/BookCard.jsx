@@ -12,7 +12,7 @@ const BookCard = ({ data, favorite, onRemove }) => {
       };
     const handleRemoveBook = async () => {
         try {
-            const response = await axios.delete(`${api}/remove-book-from-favorite`, { headers })
+            const response = await api.delete(`/remove-book-from-favorite`, { headers })
             onRemove(data._id)
             alert(response.data.message)
         } catch (error) {

@@ -15,8 +15,8 @@ const Cart = () => {
       };
       useEffect(() => {
         const fetch = async () => {
-          const response = await axios.get(
-            `${api}/get-user-cart`,
+          const response = await api.get(
+            `/get-user-cart`,
             { headers }
           );
           console.log(response.data.data)
@@ -26,7 +26,7 @@ const Cart = () => {
       }, []);
       const deleteItem = async (bookid) => {
         try {
-            const response = await axios.put(`${api}/remove-from-cart/${bookid}`, {}, {headers})
+            const response = await api.put(`/remove-from-cart/${bookid}`, {}, {headers})
             setCart(Cart.filter(book => book._id !== bookid))
             alert(response.data.message)
         } catch (error) {
@@ -44,7 +44,7 @@ const Cart = () => {
       }, [Cart])
       const placeOrder = async () => {
         try {
-            const response = await axios.post(`${api}/place-order`, {order: Cart}, {headers})
+            const response = await api.post(`/place-order`, {order: Cart}, {headers})
             console.log(response)
             alert(response.data.message)
             navigate('/profile/orderHistory')

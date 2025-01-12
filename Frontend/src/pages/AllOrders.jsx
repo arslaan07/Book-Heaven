@@ -25,8 +25,8 @@ const AllOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(
-          `${api}/get-all-orders`,
+        const response = await api.get(
+          `/get-all-orders`,
           { headers }
         );
         setAllOrders(response.data.data);
@@ -52,8 +52,8 @@ const AllOrders = () => {
   const submitChanges = async (i) => {
     try {
       const id = AllOrders[i]._id;
-      const response = await axios.put(
-        `${api}/update-status/${id}`,
+      const response = await api.put(
+        `/update-status/${id}`,
         Values,
         { headers }
       );
