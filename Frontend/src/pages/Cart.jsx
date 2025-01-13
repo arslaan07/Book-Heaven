@@ -64,7 +64,7 @@ const Cart = () => {
                     <h1 className='text-5xl lg:text-6xl font-semibold text-zinc-400'>
                         Empty Cart
                     </h1>
-                    <img src='../../public/EmptyCart.png' alt='empty cart' className='lg:h-[50vh]' />
+                    <img src='../EmptyCart.png' alt='empty cart' className='lg:h-[50vh]' />
                 </div>
             </div>
         )

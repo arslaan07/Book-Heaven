@@ -38,7 +38,7 @@ const Favourites = () => {
         FavoriteBooks.length === 0 &&  (
             <div className='md:h-[80vh] flex justify-center items-center text-5xl font-semibold text-zinc-500'>
                  No Favorite Books 
-                 <img src='../../public/Book.png' className='h-[20vh] bg-transparent' />
+                 <img src='../Book.png' className='h-[20vh] bg-transparent' />
                  </div>
         )
     }
