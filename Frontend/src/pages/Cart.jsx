@@ -62,18 +62,18 @@ const Cart = () => {
         }
       }
   return (
-    <>
+    <div className="bg-zinc-900 px-8 h-screen  py-8  ">
       {
-        !Cart && <div className='w-full h-[100%] flex items-center justify-center'><Loader /></div>
+        !Cart && <div className='w-full h-screen bg-zinc-900 flex items-center justify-center'><Loader /></div>
       }
       {
         Cart && Cart.length === 0 && (
-            <div className='h-screen'>
+            <div className='h-screen bg-zinc-900'>
                 <div className='h-[100%] flex items-center justify-center flex-col'>
                     <h1 className='text-5xl lg:text-6xl font-semibold text-zinc-400'>
                         Empty Cart
                     </h1>
-                    <img src='../EmptyCart.png' alt='empty cart' className='lg:h-[50vh]' />
+                    <img src='../EmptyCart.png'  alt='empty cart' className=' lg:h-[50vh]' />
                 </div>
             </div>
         )
@@ -107,7 +107,7 @@ const Cart = () => {
                                     Rs. {item.price}
                                 </h2>
                                 <button className='bg-red-100 text-red-700 border border-red-700 rounded p-2 ms-12' onClick={() => deleteItem(item._id)}>
-                                <AiFillDelete />
+                                <AiFillDelete size={24} />
                                 </button>
                             </div>
                         </div>
@@ -118,7 +118,7 @@ const Cart = () => {
       }
       {
         Cart && Cart.length > 0 && (
-            <div className='mt-4 w-full flex items-center justify-end'>
+            <div className='mt-12 w-full flex items-center justify-end'>
                 <div className='p-4 bg-zinc-800 rounded'>
                     <h1 className='text-3xl text-zinc-200 font-semibold'>
                         Total Amount
@@ -138,7 +138,7 @@ const Cart = () => {
             </div>
         )
       }
-    </>
+    </div>
   )
 }
 

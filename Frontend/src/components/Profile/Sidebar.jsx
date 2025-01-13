@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
 import { authActions } from "../../store/auth";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const Sidebar = ({ data }) => {
     const dispatch = useDispatch()
@@ -75,7 +76,9 @@ const Sidebar = ({ data }) => {
         localStorage.clear('token')
         localStorage.clear('role')
         navigate('/')
-        alert('logout successful')
+        toast.success("Logout Success !", {
+          theme: "dark"
+        })
       }}
       >
         Log Out <FaArrowRightFromBracket className="ms-4" />

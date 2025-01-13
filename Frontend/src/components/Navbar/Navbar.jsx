@@ -34,7 +34,7 @@ const Navbar = () => {
     links.splice(2, 3);
   }
   else if(isLoggedIn && role === "admin") {
-    links.splice(3,1)
+    links.splice(2,2)
   }
   else if(isLoggedIn && role === "user") {
     links.splice(4,1)
