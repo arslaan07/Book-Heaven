@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { authActions } from '../store/auth'
 import { useDispatch } from 'react-redux'
 import api from '../api';
+import { toast } from 'react-toastify'
 
 const LogIn = () => {
   const navigate = useNavigate()
@@ -21,7 +22,9 @@ const LogIn = () => {
     try {
         const { username, password } = Values
         if(username === '' || password === '') {
-            alert('All fields are required')
+          toast.warn('All fields required', {
+            theme: 'dark',
+          })
             return
         }
         const response = await api.post(`api/v1/sign-in`, Values)
@@ -31,10 +34,14 @@ const LogIn = () => {
         localStorage.setItem('token', response.data.token)
         localStorage.setItem('id', response.data.id)
         localStorage.setItem('role', response.data.role)
-        alert(response.data.message)
+        toast.success('login successfull !', {
+          theme: 'dark',
+        })
         navigate('/profile')
     } catch (error) {
-        alert(error.message)
+      toast.error('Incorrect email or password', {
+        theme: 'dark',
+      })
     }
   }
   return (

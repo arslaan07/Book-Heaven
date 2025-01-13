@@ -77,7 +77,7 @@ const Navbar = () => {
                 LogIn
               </Link>
               <Link
-                to="signup"
+                to="/signup"
                 className="px-4 py-2 bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
               >
                 SignUp
@@ -121,14 +121,14 @@ const Navbar = () => {
         {isLoggedIn === false && (
           <>
             <Link
-              to="/login"
-              className="px-4 py-2 border border-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
+              to="/login" onClick={() => setMobileNav("hidden")}
+              className="px-4 py-2 border border-blue-500 rounded text-white hover:bg-white hover:text-zinc-800 transition-all duration-300"
             >
               LogIn
             </Link>
             <Link
-              to="signup"
-              className="px-4 py-2 bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
+              to="/signup" onClick={() => setMobileNav("hidden")}
+              className="px-4 py-2 bg-blue-500 rounded text-white hover:bg-white hover:text-zinc-800 transition-all duration-300"
             >
               SignUp
             </Link>

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import api from '../../api';
+import { toast } from 'react-toastify';
 
 const BookCard = ({ data, favorite, onRemove }) => {
     console.log(data)
@@ -14,9 +15,13 @@ const BookCard = ({ data, favorite, onRemove }) => {
         try {
             const response = await api.delete(`api/v1/remove-book-from-favorite`, { headers })
             onRemove(data._id)
-            alert(response.data.message)
+            toast.success(response.data.message, {
+              theme: 'dark',
+            })
         } catch (error) {
-            console.log(error.message)
+          toast.error(error.message, {
+            theme: 'dark',
+          })
         }
        
       }

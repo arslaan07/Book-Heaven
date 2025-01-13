@@ -4,6 +4,7 @@ import { AiFillDelete } from "react-icons/ai";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import api from '../api';
+import { toast } from 'react-toastify';
 
 const Cart = () => {
     const navigate = useNavigate()
@@ -28,9 +29,13 @@ const Cart = () => {
         try {
             const response = await api.put(`api/v1/remove-from-cart/${bookid}`, {}, {headers})
             setCart(Cart.filter(book => book._id !== bookid))
-            alert(response.data.message)
+            toast.success("Book deleted !", {
+                    theme: "dark",
+                  });
         } catch (error) {
-            console.error(error)
+            toast.error(error.message, {
+                    theme: "dark",
+                  });
         }
       }
       useEffect(() => {
@@ -46,10 +51,14 @@ const Cart = () => {
         try {
             const response = await api.post(`api/v1/place-order`, {order: Cart}, {headers})
             console.log(response)
-            alert(response.data.message)
+            toast.success("Order placed !", {
+                theme: "dark",
+              });
             navigate('/profile/orderHistory')
         } catch (error) {
-            console.error(error.message)
+            toast.error(error.message, {
+                theme: "dark",
+              });
         }
       }
   return (

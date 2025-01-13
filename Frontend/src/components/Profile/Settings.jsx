@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Loader from '../Home/Loader/Loader';
 import api from '../../api';
+import { toast } from 'react-toastify';
 
 const Settings = () => {
     const [Value, setValue] = useState()
@@ -26,9 +27,13 @@ const Settings = () => {
       const updateAddress = async () => {
         try {
             const response = await  api.put(`api/v1/update-address`, Value, { headers })
-            alert('Adress updated successfully')
+            toast.success('Adress updated successfully !', {
+                      theme: 'dark',
+                    })
         } catch (error) {
-            console.error(error)
+            toast.error(error.message, {
+                    theme: 'dark',
+                  })
         }
       }
   return (

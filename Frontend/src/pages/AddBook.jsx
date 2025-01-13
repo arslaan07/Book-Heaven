@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import api from '../api';
+import { toast } from 'react-toastify';
 
 const AddBook = () => {
     const navigate = useNavigate()
@@ -30,7 +31,9 @@ const AddBook = () => {
                 Data.desc === '' ||
                 Data.language === ''
             ) {
-                alert('All fields are required')
+                toast.warn('All fields required', {
+                            theme: 'dark',
+                          })
                 return
             }
             const response = await api.post(`api/v1/add-book`, Data, { headers })
@@ -43,9 +46,13 @@ const AddBook = () => {
                 language: '',
             })
             navigate('/')
-            alert(response.data.message)
+            toast.success(response.data.message, {
+                      theme: 'dark',
+                    })
         } catch (error) {
-            alert(error.response.data.message)
+            toast.error(error.response.data.message, {
+                    theme: 'dark',
+                  })
         }
       }
   return (

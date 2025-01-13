@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../api';
+import { toast } from 'react-toastify';
 
 const UpdateBook = () => {
     const navigate = useNavigate()
@@ -32,7 +33,9 @@ const UpdateBook = () => {
                 Data.desc === '' ||
                 Data.language === ''
             ) {
-                alert('All fields are required')
+                toast.warn("All fields are required !", {
+                  theme: "dark",
+                });
                 return
             }
             const response = await api.put(`api/v1/update-book`, Data, { headers })
@@ -45,9 +48,13 @@ const UpdateBook = () => {
                 language: '',
             })
             navigate(`/view-book-details/${id}`)
-            alert(response.data.message)
+            toast.success("Book Updated !", {
+                    theme: "dark",
+                  });
         } catch (error) {
-            alert(error.response.data.message)
+            toast.error(error.message, {
+                    theme: "dark",
+                  });
         }
       }
       useEffect(() => {

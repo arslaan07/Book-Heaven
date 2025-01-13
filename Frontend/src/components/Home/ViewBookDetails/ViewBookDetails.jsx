@@ -7,21 +7,19 @@ import { useSelector } from "react-redux";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
-import api from '../../../api';
-
+import api from "../../../api";
+import { toast } from "react-toastify";
 
 const ViewBookDetails = () => {
   const { id } = useParams();
   const [Data, setData] = useState();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const role = useSelector((state) => state.auth.role);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await api.get(
-        `api/v1/get-book-by-id/${id}`
-      );
+      const response = await api.get(`api/v1/get-book-by-id/${id}`);
       setData(response.data.data);
     };
     fetch();
@@ -35,31 +33,45 @@ const ViewBookDetails = () => {
 
   const handleFavourite = async () => {
     try {
-        const response = await api.put('api/v1/add-book-to-favorite', {}, { headers })
-        alert(response.data.message)
+      const response = await api.put(
+        "api/v1/add-book-to-favorite",
+        {},
+        { headers }
+      );
+      toast.success(response.data.message, {
+        theme: "dark",
+      });
     } catch (error) {
-        console.log(error.message)
+      toast.error(error.message, {
+        theme: "dark",
+      });
     }
-   
-  }
+  };
   const handleCart = async () => {
     try {
-        const response = await api.put('api/v1/add-to-cart', {}, { headers })
-        alert(response.data.message)
+      const response = await api.put("api/v1/add-to-cart", {}, { headers });
+      toast.success(response.data.message, {
+        theme: "dark",
+      });
     } catch (error) {
-        console.log(error.message)
+      toast.error(error.message, {
+        theme: "dark",
+      });
     }
-   
-  }
+  };
   const deleteBook = async () => {
     try {
-        const response = await api.delete('api/v1/delete-book', {headers})
-        alert(response.data.message)
-        navigate('/all-books')
+      const response = await api.delete("api/v1/delete-book", { headers });
+      toast.success(response.data.message, {
+        theme: "dark",
+      });
+      navigate("/all-books");
     } catch (error) {
-        alert(error.message)
+      toast.error(error.message, {
+        theme: "dark",
+      });
     }
-  }
+  };
   return (
     <div className="px-6 md:px-12 py-8 bg-zinc-900 flex flex-col md:flex-row gap-8">
       {!Data && (
@@ -79,9 +91,11 @@ const ViewBookDetails = () => {
             {isLoggedIn && role === "user" && (
               <div className="flex md:flex-col md:ms-4 md:gap-8 gap-4 mt-4 ">
                 {/* Favorite Button */}
-                <button className="bg-white hover:bg-red-100 rounded-full md:rounded text-sm md:text-3xl
+                <button
+                  className="bg-white hover:bg-red-100 rounded-full md:rounded text-sm md:text-3xl
                  p-3 flex items-center gap-2 text-red-500 shadow-lg transition"
-                 onClick={handleFavourite}>
+                  onClick={handleFavourite}
+                >
                   <FaHeart />
                   <span className="md:hidden">Add to Favourite</span>
                 </button>
@@ -89,8 +103,7 @@ const ViewBookDetails = () => {
                 <button
                   className="bg-white hover:bg-blue-100 rounded-full md:rounded text-sm md:text-3xl
                      p-3 flex items-center gap-2 text-blue-500 shadow-lg transition"
-                     onClick={handleCart}
-
+                  onClick={handleCart}
                 >
                   <FaShoppingCart />
                   <span className="md:hidden">Add to Cart</span>
@@ -100,12 +113,18 @@ const ViewBookDetails = () => {
             {isLoggedIn && role === "admin" && (
               <div className="flex md:flex-col md:ms-4 md:gap-8 gap-4 mt-4 ">
                 {/* Favorite Button */}
-                <Link to={`/update-book/${id}`} className="bg-white hover:bg-blue-100 rounded-full md:rounded text-sm md:text-3xl p-3 flex items-center gap-2 text-blue-500 shadow-lg transition">
+                <Link
+                  to={`/update-book/${id}`}
+                  className="bg-white hover:bg-blue-100 rounded-full md:rounded text-sm md:text-3xl p-3 flex items-center gap-2 text-blue-500 shadow-lg transition"
+                >
                   <FaEdit />
                   <span className="md:hidden">Edit</span>
                 </Link>
                 {/* Add to Cart Button */}
-                <button onClick={deleteBook} className="bg-white hover:bg-red-100 rounded-full md:rounded text-sm md:text-3xl p-3 flex items-center gap-2 text-red-500 shadow-lg transition">
+                <button
+                  onClick={deleteBook}
+                  className="bg-white hover:bg-red-100 rounded-full md:rounded text-sm md:text-3xl p-3 flex items-center gap-2 text-red-500 shadow-lg transition"
+                >
                   <MdOutlineDelete />
                   <span className="md:hidden">Delete Book</span>
                 </button>

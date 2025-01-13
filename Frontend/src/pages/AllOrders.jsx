@@ -7,6 +7,7 @@ import { FaCheck } from "react-icons/fa";
 import { IoOpenOutline } from "react-icons/io5";
 import SeeUserData from "./SeeUserData";
 import api from '../api';
+import { toast } from "react-toastify";
 
 const AllOrders = () => {
   const [AllOrders, setAllOrders] = useState([]);
@@ -58,7 +59,9 @@ const AllOrders = () => {
         { headers }
       );
 
-      alert(response.data.message);
+      toast.info(response.data.message, {
+                theme: 'dark',
+              })
 
       // Update the state directly after successful response
       const updatedOrders = [...AllOrders];
@@ -67,7 +70,9 @@ const AllOrders = () => {
 
       setOptions(-1); // Reset options dropdown
     } catch (error) {
-      alert("Error updating status: " + error.message);
+      toast.error("Error updating status: " + error.message, {
+                          theme: "dark",
+                        });
     }
   };
 
@@ -180,7 +185,6 @@ const AllOrders = () => {
 </div>
 
 )}
-
             </h1>
           </div>
           <div className="w-[10%] md:w-[5%]">
@@ -194,7 +198,6 @@ const AllOrders = () => {
           </div>
         </div>
       ))}
-      
     </div>
     {
         userDivData && (
