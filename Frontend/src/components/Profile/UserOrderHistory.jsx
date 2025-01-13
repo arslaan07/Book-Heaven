@@ -75,25 +75,25 @@ const UserOrderHistory = () => {
                                 <h1 className='text-center'>{i+1}</h1>
                             </div>
                             <div className='w-[22%]'>
-                                <Link to={`/view-book-details/${items.book._id}`} className='hover:text-blue-300'>
-                                    {items.book.title}
+                                <Link to={`/view-book-details/${items?.book?._id}`} className='hover:text-blue-300'>
+                                    {items?.book?.title}
                                 </Link>
                             </div>
                             <div className='w-[45%]'>
-                                <h1 className=''>{items.book.desc.slice(0, 50)} ...</h1>
+                                <h1 className=''>{items?.book?.desc.slice(0, 50)} ...</h1>
                             </div>
                             <div className='w-[9%]'>
-                                <h1 className=''>Rs. {items.book.price} </h1>
+                                <h1 className=''>Rs. {items?.book?.price} </h1>
                             </div>
                             <div className='w-[16%]'>
                                 <h1 className='font-semibold text-green-500'>
                                 {
-                                    items.status === 'Order placed' ? (
+                                    items?.status === 'Order placed' ? (
                                         <div className='text-yellow-500'>{items.status}</div>
-                                    ) : items.status === 'Cancelled' ? (
+                                    ) : items?.status === 'Cancelled' ? (
                                         <div className='text-red-500'>{items.status}</div>
                                     ) : (
-                                        items.status
+                                        items?.status
                                     )
                                 }
                                 </h1>

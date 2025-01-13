@@ -14,7 +14,6 @@ const Profile = () => {
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,
   };
-  console.log(api)
   useEffect(() => {
     const fetch = async () => {
       const response = await api.get(

@@ -155,28 +155,30 @@ const AllOrders = () => {
                 </span>
               </button>
               {Options === i && (
-  <div className="flex flex-col sm:flex-row mt-2 items-start sm:items-center">
-    <select
-      name="status"
-      className="bg-gray-800 text-white p-2 rounded w-full sm:w-auto"
-      onChange={change}
-      value={Values.status}
-    >
-      {["Order placed", "Out for delivery", "Delivered", "Canceled"].map(
-        (statusOption, index) => (
-          <option key={index} value={statusOption}>
-            {statusOption}
-          </option>
-        )
-      )}
-    </select>
-    <button
-      className="text-green-500 hover:text-pink-600 mt-2 sm:mt-0 sm:ml-2 flex-shrink-0"
-      onClick={() => submitChanges(i)}
-    >
-      <FaCheck size={20} />
-    </button>
-  </div>
+  <div className="flex flex-col gap-4 w-full">
+  <select
+    name="status"
+    className="bg-gray-800 text-white p-2 rounded w-full"
+    onChange={change}
+    value={Values.status}
+  >
+    {["Order placed", "Out for delivery", "Delivered", "Canceled"].map(
+      (statusOption, index) => (
+        <option key={index} value={statusOption}>
+          {statusOption}
+        </option>
+      )
+    )}
+  </select>
+  <button
+    className="flex items-center justify-start text-green-500 hover:text-pink-600 rounded focus:outline-none"
+    onClick={() => submitChanges(i)}
+    aria-label="Submit Status Change"
+  >
+    <FaCheck size={24} />
+  </button>
+</div>
+
 )}
 
             </h1>
