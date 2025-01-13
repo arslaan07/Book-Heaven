@@ -17,9 +17,10 @@ const allowedOrigins = [
   app.use(cors({
     origin: [
         'https://zingy-cupcake-8a672f.netlify.app',
+        'http://localhost:5173'
     ],
     credentials: true
-}));
+}))
   
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))

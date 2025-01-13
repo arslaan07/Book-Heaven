@@ -10,10 +10,6 @@ const Navbar = () => {
       link: "/",
     },
     {
-      title: "About Us",
-      link: "/about-us",
-    },
-    {
       title: "All Books",
       link: "/all-books",
     },
@@ -35,13 +31,13 @@ const Navbar = () => {
   });
   const role = useSelector((state) => state.auth.role);
   if (isLoggedIn === false) {
-    links.splice(3, 3);
+    links.splice(2, 3);
   }
   else if(isLoggedIn && role === "admin") {
-    links.splice(4,1)
+    links.splice(3,1)
   }
   else if(isLoggedIn && role === "user") {
-    links.splice(5,1)
+    links.splice(4,1)
   }
   const [mobileNav, setMobileNav] = useState("hidden");
 
