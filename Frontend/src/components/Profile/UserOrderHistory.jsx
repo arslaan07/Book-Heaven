@@ -26,12 +26,12 @@ const UserOrderHistory = () => {
   return (
     <>
       {
-        !OrderHistory && <div className='w-full h-[100%] flex items-center justify-center'><Loader /></div>
+        !OrderHistory && <div className='w-full h-screen flex items-center justify-center'><Loader /></div>
       }
       {
         OrderHistory && OrderHistory.length === 0 && (
-            <div className='h-[80vh] p-4 text-zinc-100'>
-                <div className='h-[100%] flex items-center justify-center flex-col'>
+            <div className='md:h-[80vh] p-4 text-zinc-100'>
+                <div className='h-[100%] flex items-center justify-center md:flex-col'>
                     <h1 className='text-5xl lg:text-6xl font-semibold text-zinc-500 mb-8'>
                         No Order History
                     </h1>
