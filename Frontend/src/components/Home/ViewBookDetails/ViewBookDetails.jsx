@@ -73,9 +73,9 @@ const ViewBookDetails = () => {
     }
   };
   return (
-    <div className="px-6 md:px-12 py-8 bg-zinc-900 flex flex-col md:flex-row gap-8">
+    <div className="px-6 md:px-12 min-h-[100vh] py-8 bg-zinc-900 flex flex-col md:flex-row gap-8">
       {!Data && (
-        <div className="flex items-center justify-center my-8">
+        <div className=" w-full flex items-center justify-center my-8">
           <Loader />
         </div>
       )}

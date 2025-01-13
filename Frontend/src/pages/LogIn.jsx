@@ -37,7 +37,7 @@ const LogIn = () => {
         toast.success('login successfull !', {
           theme: 'dark',
         })
-        navigate('/profile')
+        response.data.role === 'admin' ? navigate('/profile') : navigate('/')
     } catch (error) {
       toast.error('Incorrect email or password', {
         theme: 'dark',
