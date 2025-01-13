@@ -25,7 +25,10 @@ const Favourites = () => {
       }
   return (
     <>
-      <div className='flex flex-col md:grid grid-cols-4 gap-4 '>
+    {
+        !FavoriteBooks && <div className='w-full h-screen flex items-center justify-center'><Loader /></div>
+      }
+      <div className='flex flex-col md:grid grid-cols-4 gap-4 px-4'>
         {
             FavoriteBooks.length > 0 && (
                 FavoriteBooks.map((book, i) => (
@@ -36,11 +39,17 @@ const Favourites = () => {
       </div>
       {
         FavoriteBooks.length === 0 &&  (
-            <div className='md:h-[80vh] flex justify-center items-center text-5xl font-semibold text-zinc-500'>
-                 No Favorite Books 
-                 <img src='../Book.png' className='h-[20vh] bg-transparent' />
-                 </div>
+          <div className='md:h-[80vh] p-4 text-zinc-100'>
+          <div className='h-[100%] flex items-center justify-center md:flex-col'>
+              <h1 className='text-5xl lg:text-6xl font-semibold text-zinc-500 mb-8'>
+              No Favorite Books
+              </h1>
+              <img src='../Book.png'
+               className='h-[20vh] mb-8' />
+          </div>
+      </div>
         )
+        
     }
     </>
   )

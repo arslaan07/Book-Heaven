@@ -44,7 +44,7 @@ const UserOrderHistory = () => {
       }
       {
         OrderHistory && OrderHistory.length > 0 && (
-            <div className='h-[100%] p-0 md:p-4 text-zinc-100'>
+            <div className='h-[100%] px-4 md:p-4 text-zinc-100'>
                 <h1 className='text-3xl md:text-5xl font-semibold text-zinc-500 mb-8'>
                     Your Order History
                 </h1>
