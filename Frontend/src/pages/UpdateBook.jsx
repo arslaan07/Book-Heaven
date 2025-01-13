@@ -61,7 +61,7 @@ const UpdateBook = () => {
       }, [id]);
   return (
     <div className='bg-zinc-900 h-[100%] p-0 md:p-4 '>
-      <h1 className='text-3xl md:text-5xl font-semibold text-zinc-500 mb-8 '>
+      <h1 className='text-3xl md:text-5xl font-semibold text-zinc-500 mb-8 py-4 px-2'>
         Update Book
       </h1>
       <div className='bg-zinc-800 rounded p-4'>
