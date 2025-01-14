@@ -30,16 +30,6 @@ The project is organized into two main folders:
 - **LocalStorage:** Recently viewed books are stored in localStorage to enhance performance and user experience.
 
 
-## Authentication
-
-### Admin Account
-- **Username:** `Admin`
-- **Password:** `123456`
-
-### User Account
-- **Username:** `user1`
-- **Password:** `123456`
-
 ---
 
 ## Technologies Used

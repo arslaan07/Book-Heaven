@@ -62,7 +62,7 @@ const Cart = () => {
         }
       }
   return (
-    <div className="bg-zinc-900 px-8 h-screen  py-8  ">
+    <div className="bg-zinc-900 px-8 h-[100%]  py-8  ">
       {
         !Cart && <div className='w-full h-screen bg-zinc-900 flex items-center justify-center'><Loader /></div>
       }
