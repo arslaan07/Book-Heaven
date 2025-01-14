@@ -17,7 +17,6 @@ const RecentlyAdded = () => {
                   setData(JSON.parse(recentBooks))
                   return
                 }
-                setData(response.data.data);
             } catch (err) {
                 setError(err.message || 'Failed to fetch books');
                 console.error(err);
