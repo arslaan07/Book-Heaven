@@ -88,7 +88,7 @@ const AllOrders = () => {
     <>
     <div className="h-[100%] p-4 text-zinc-100">
       <h1 className="text-3xl md:text-5xl font-semibold text-zinc-500 mb-8">
-        Your Order History
+        Customer Order History
       </h1>
       <div className="mt-4 bg-zinc-800 w-full rounded py-2 px-2 flex gap-2">
         <div className="w-[3%]">

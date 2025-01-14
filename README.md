@@ -3,6 +3,15 @@
 ## Overview
 This is a MERN (MongoDB, Express, React, Node.js)-based bookstore application that allows users to browse recently added books, add new books, and manage books through an admin panel. The application also incorporates localStorage for caching recently viewed books and uses an API for dynamic data fetching.
 
+## Screenshots
+
+### Admin Panel
+![Admin Panel](https://github.com/arslaan07/Book-Heaven/blob/main/admin-panel.png?raw=true)
+
+![Admin Panel](https://github.com/arslaan07/Book-Heaven/blob/main/admin-panel2.png?raw=true)
+
+### User Panel
+![User Panel](https://github.com/arslaan07/Book-Heaven/blob/main/user-panel.png?raw=true)
 ---
 
 ## Project Structure
