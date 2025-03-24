@@ -21,6 +21,9 @@ router.post('/sign-up', async (req, res) => {
         if(existingEmail) {
             return res.status(400).json({ message: "email already exists"})
         }
+        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return res.status(400).json({ message: "enter a vaild email"})
+        }
         if(password.length <= 5) {
             return res.status(400).json({ message: "password length must be greater than 5"})
         }
