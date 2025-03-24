@@ -12,36 +12,33 @@ const axios = require('axios')
 
 const allowedOrigins = [
     "http://localhost:5173", // Development environment
-    "https://zingy-cupcake-8a672f.netlify.app", // Production environment
+    process.env.FRONTEND_URL, // Production environment
   ];
   
   app.use(cors({
-    origin: [
-        'https://zingy-cupcake-8a672f.netlify.app',
-        'http://localhost:5173'
-    ],
+    origin: allowedOrigins,
     credentials: true
 }))
   
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 
-// Keep-alive function
-function keepServerAlive() {
-    if (process.env.RENDER_EXTERNAL_URL) {
-        setInterval(async () => {
-            try {
-                const response = await axios.get(process.env.RENDER_EXTERNAL_URL);
-                console.log('Server pinged successfully');
-            } catch (error) {
-                console.error('Ping failed', error);
-            }
-        }, 10 * 60 * 1000); // Ping every 10 minutes
-    }
-}
+// // Keep-alive function
+// function keepServerAlive() {
+//     if (process.env.RENDER_EXTERNAL_URL) {
+//         setInterval(async () => {
+//             try {
+//                 const response = await axios.get(process.env.RENDER_EXTERNAL_URL);
+//                 console.log('Server pinged successfully');
+//             } catch (error) {
+//                 console.error('Ping failed', error);
+//             }
+//         }, 10 * 60 * 1000); // Ping every 10 minutes
+//     }
+// }
 
-// Call the function
-keepServerAlive();
+// // Call the function
+// keepServerAlive();
 
 app.use('/api/v1', user)
 app.use('/api/v1', book)

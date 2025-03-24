@@ -2,13 +2,16 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { authActions } from '../store/auth'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import api from '../api';
 import { toast } from 'react-toastify'
 
 const LogIn = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const { isAuthenticated, user } = useSelector()
+  console.log(isAuthenticated)
+  console.log(user)
 
   const [ Values, setValues ] = useState({
     username: '',
