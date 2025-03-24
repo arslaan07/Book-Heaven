@@ -50,7 +50,7 @@ const Navbar = () => {
             src="https://cdn-icons-png.flaticon.com/128/10433/10433049.png"
             alt="logo"
           />
-          <h1 className="text-2xl font-semibold">Book Heaven</h1>
+          <h1 className="text-2xl font-semibold">Dream Books</h1>
         </Link>
         <div className="nav-links-bookheaven block md:flex items-center gap-4">
           <div className="hidden md:flex gap-4">

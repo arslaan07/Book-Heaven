@@ -9,9 +9,9 @@ import { toast } from 'react-toastify'
 const LogIn = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { isAuthenticated, user } = useSelector()
-  console.log(isAuthenticated)
-  console.log(user)
+  // const { isAuthenticated, user } = useSelector(state => state.auth)
+  // console.log(isAuthenticated)
+  // console.log(user)
 
   const [ Values, setValues ] = useState({
     username: '',
@@ -42,9 +42,9 @@ const LogIn = () => {
         })
         response.data.role === 'admin' ? navigate('/profile') : navigate('/')
     } catch (error) {
-      toast.error('Incorrect email or password', {
-        theme: 'dark',
-      })
+        toast.error(error.response.data.message, {
+          theme: "dark",
+        });
     }
   }
   return (
